@@ -1,0 +1,30 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Referencias',
+        typeNamePlural: 'Referencias'
+    }
+}
+annotate view zcds_c_recdte_ref with
+
+{
+
+  @UI.lineItem: [{ position: 10 }]
+  NroLinea;
+
+  @UI.lineItem: [{ position: 20 }]
+  CodTipoDocRef;
+
+  @UI.lineItem: [{ position: 30 }]
+  DescTipoDocRef;
+
+  @UI.lineItem: [{ position: 40 }]
+  FechaDocRef;
+
+  @UI.lineItem: [{ position: 50 }]
+  Folio;
+
+  @UI.lineItem: [{ position: 60 }]
+  RazonReferencia;
+
+}

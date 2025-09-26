@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Definición de servicio para ZCDS_P_APIS'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZCDS_P_APIS'
+  }
+}
+define service ZCDS_SRV_APIS provider contracts odata_v4_ui {
+  expose ZCDS_P_APIS;
+}

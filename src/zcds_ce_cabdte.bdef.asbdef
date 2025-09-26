@@ -1,0 +1,40 @@
+unmanaged implementation in class zbp_cds_ce_cabdte unique;
+strict ( 2 );
+
+define behavior for ZCDS_CE_CABDTE alias CabDTE
+lock master
+authorization master ( instance )
+{
+
+  field ( readonly ) iddte_sap;
+  create;
+  update;
+  delete;
+
+  association _Pos { create; }
+  association _ref { create; }
+}
+
+define behavior for ZCDS_CE_DETDTE alias DetDTE
+lock dependent by _Cab
+authorization dependent by _Cab
+{
+
+  field ( readonly ) iddte_sap, nrolindet;
+  update;
+  delete;
+
+  association _Cab;
+}
+
+define behavior for ZCDS_CE_REFDTE alias RefDTE
+lock dependent by _Cab
+authorization dependent by _Cab
+{
+
+  field ( readonly ) iddte_sap, nrolinref;
+  update;
+  delete;
+
+  association _Cab;
+}

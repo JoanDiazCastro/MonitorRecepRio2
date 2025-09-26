@@ -1,0 +1,17 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Entradas de Mercancía',
+        typeNamePlural: 'Entradas de Mercancía'
+    }
+}
+
+annotate view zcds_c_recdte_ref_em with
+{
+  @UI.lineItem: [{ position: 10 }]
+  doctomaterial;
+
+  @UI.lineItem: [{ position: 20 }]
+  total;
+
+}

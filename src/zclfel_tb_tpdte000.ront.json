@@ -1,0 +1,10 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Tipo de objeto SAP ZCLFEL_TB_TPDTE000",
+    "originalLanguage": "es",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "typeCategory": "businessObject",
+  "name": "ZCLFEL_TB_TPDTE000"
+}

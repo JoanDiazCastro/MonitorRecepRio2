@@ -1,0 +1,6 @@
+@EndUserText.label: 'Api DTE'
+define service ZCDS_SVR_DTE_API {
+  expose ZCDS_CE_CABDTE as DteApi;
+  expose ZCDS_CE_DETDTE as DteDetail;
+  expose ZCDS_CE_REFDTE as DteReference;
+}

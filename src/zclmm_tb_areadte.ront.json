@@ -1,0 +1,10 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Tipo de objeto SAP ZCLMM_TB_AREADTE",
+    "originalLanguage": "es",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "typeCategory": "businessObject",
+  "name": "ZCLMM_TB_AREADTE"
+}

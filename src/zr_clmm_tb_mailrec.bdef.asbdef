@@ -1,0 +1,44 @@
+managed implementation in class ZBP_R_CLMM_TB_MAILREC unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_CLMM_TB_MAILREC alias ZrClmmTbMailrec
+persistent table ZCLMM_TB_MAILREC
+extensible
+draft table ZCLMM_TB_MLREC_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   Codmot;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   Codmot;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLMM_TB_MAILREC corresponding extensible
+  {
+    Codmot = codmot;
+    Descripcion = descripcion;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

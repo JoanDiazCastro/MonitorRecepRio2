@@ -1,0 +1,6 @@
+abstract;
+
+define behavior for ZCDS_AB_CONTAB_FB60 //alias <alias_name>
+{
+  field ( mandatory ) TaxCode, Text;
+}

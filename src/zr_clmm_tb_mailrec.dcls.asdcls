@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_CLMM_TB_MAILREC'
+@MappingRole: true
+define role ZR_CLMM_TB_MAILREC {
+  grant select on ZR_CLMM_TB_MAILREC
+  where TRUE;
+}

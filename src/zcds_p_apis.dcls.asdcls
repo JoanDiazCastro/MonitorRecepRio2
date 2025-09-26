@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_P_APIS'
+@MappingRole: true
+define role ZCDS_P_APIS {
+  grant select on ZCDS_P_APIS
+  where INHERITING CONDITIONS FROM ENTITY ZCDS_I_APIS REPLACING { ROOT WITH _BaseEntity };
+}

@@ -1,0 +1,9 @@
+@EndUserText.label: 'Access Control: Recepción FEL por Sociedad'
+@MappingRole: true
+define role ZACL_RECDTE_CAB {
+    grant 
+        select
+            on
+                zcds_c_recdte_cab
+                    where ( Sociedad ) = aspect pfcg_auth(F_BKPF_BUK, BUKRS,  ACTVT = '03');
+}

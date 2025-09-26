@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_P_EXCECOC'
+@MappingRole: true
+define role ZCDS_P_EXCECOC {
+  grant select on ZCDS_P_EXCECOC
+  where INHERITING CONDITIONS FROM ENTITY ZCDS_C_EXCECOC REPLACING { ROOT WITH _BaseEntity };
+}

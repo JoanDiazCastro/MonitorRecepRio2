@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Definición de servicio para ZCDS_P_AREADTE'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZCDS_P_AREADTE'
+  }
+}
+define service ZCDS_SRV_AREADTE provider contracts odata_v4_ui {
+  expose ZCDS_P_AREADTE;
+}

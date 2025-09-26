@@ -1,0 +1,40 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Configuración de APIs',
+        typeNamePlural: 'Apis',
+        title: { type: #STANDARD, value: 'Idend' , label: 'ID Endpoint' }
+        },
+    presentationVariant: [{ sortOrder: [{ by: 'Idend', direction: #ASC }] }]
+}
+
+annotate entity ZCDS_P_APIS with
+{
+  @UI.facet: [
+    {
+        label: 'Apis',
+        purpose: #STANDARD,
+        id: 'Apis',
+        type: #IDENTIFICATION_REFERENCE,
+        position: 10
+     }
+   ]
+  @UI.lineItem: [{ position: 10, label: 'ID Endpoint' }]
+  @UI.identification: [ { position: 10, label: 'ID enpoint' } ]
+  Idend;
+//  @UI.lineItem: [{ position: 20, label: 'Endpoint' }]
+//  @UI.identification: [ { position: 20, label: 'Endpoint' } ]
+//  IdEndpoint;
+  @UI.lineItem: [{ position: 30, label: 'Url'}]
+  @UI.identification: [ { position: 30, label: 'Url' } ]
+  Endpoint;
+  @UI.lineItem: [{ position: 40, label: 'Usuario'}]
+  @UI.identification: [ { position: 40, label: 'Usuario' } ]
+  Zzuser;
+  @UI.lineItem: [{ position: 50, label: 'Contraseña'}]
+  @UI.identification: [ { position: 50, label: 'Contraseña' } ]
+  Zzpassword;
+  @UI.lineItem: [{ position: 60, label: 'Método'}]
+  @UI.identification: [ { position: 60, label: 'Método' } ]
+  Zzmethod;
+}

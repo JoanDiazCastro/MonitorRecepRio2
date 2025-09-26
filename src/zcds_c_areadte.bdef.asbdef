@@ -1,0 +1,44 @@
+managed implementation in class ZBP_R_CLMM_TB_AREADTE unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCDS_C_AREADTE alias ZcdsCAreadte
+persistent table ZCLMM_TB_AREADTE
+extensible
+draft table ZCLMM_TB_ARDTE_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   Codarea;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   Codarea;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLMM_TB_AREADTE corresponding extensible
+  {
+    Codarea = codarea;
+    Descarea = descarea;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

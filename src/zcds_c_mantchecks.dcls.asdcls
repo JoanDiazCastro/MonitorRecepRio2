@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_C_MANTCHECKS'
+@MappingRole: true
+define role ZCDS_C_MANTCHECKS {
+  grant select on ZCDS_C_MANTCHECKS
+  where TRUE;
+}

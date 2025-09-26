@@ -1,0 +1,34 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Log',
+        typeNamePlural: 'Log'
+    },
+    presentationVariant: [
+    {
+        sortOrder: [{by: 'Correlativo', direction: #DESC}]
+     }]
+}
+
+annotate view zcds_c_recdte_log with
+
+{
+  @UI.lineItem: [{ position: 10 }]
+  Correlativo;
+
+  @UI.lineItem: [{ position: 20 }]
+  Fecha;
+
+  @UI.lineItem: [{ position: 30 }]
+  Hora;
+
+  @UI.lineItem: [{ position: 40 }]
+  Mensaje;
+
+  @UI.lineItem: [{ position: 50, criticality: 'mensajeStatus'  }]
+  Tipo;
+
+  @UI.lineItem: [{ position: 60 }]
+  Usuario;
+
+}

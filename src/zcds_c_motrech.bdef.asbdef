@@ -1,0 +1,44 @@
+managed implementation in class ZBP_R_CLMM_TB_MOTRECH unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCDS_C_MOTRECH alias ZcdsCMotrech
+persistent table ZCLMM_TB_MOTRECH
+extensible
+draft table ZCLMM_TB_MTRCH_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   Codigo;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   Codigo;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLMM_TB_MOTRECH corresponding extensible
+  {
+    Codigo = codigo;
+    Descripcion = descripcion;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

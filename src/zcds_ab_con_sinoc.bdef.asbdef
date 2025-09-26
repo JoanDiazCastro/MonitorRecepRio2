@@ -1,0 +1,8 @@
+abstract;
+
+define behavior for ZCDS_AB_CON_SINOC
+{
+
+  field ( mandatory ) folioref, fchref;
+
+}

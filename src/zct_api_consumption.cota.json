@@ -1,0 +1,16 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Consumir Apis",
+    "originalLanguage": "es",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "configuration": {
+    "communicationTargetClass": "ZCT_API_CONSUMPTION",
+    "allowMultipleDestinations": true
+  },
+  "httpSettings": {
+    "pathPrefix": "/A_SUPPLIERINVOICE"
+  },
+  "rfcSettings": {}
+}

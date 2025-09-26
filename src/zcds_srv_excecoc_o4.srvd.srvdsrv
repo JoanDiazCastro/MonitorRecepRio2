@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Definición de servicio para ZCDS_P_EXCECOC'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZCDS_P_EXCECOC'
+  }
+}
+define service ZCDS_SRV_EXCECOC_O4 provider contracts odata_v4_ui {
+  expose ZCDS_P_EXCECOC;
+}

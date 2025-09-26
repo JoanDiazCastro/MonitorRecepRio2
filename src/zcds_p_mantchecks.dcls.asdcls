@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_P_MANTCHECKS'
+@MappingRole: true
+define role ZCDS_P_MANTCHECKS {
+  grant select on ZCDS_P_MANTCHECKS
+  where INHERITING CONDITIONS FROM ENTITY ZCDS_C_MANTCHECKS REPLACING { ROOT WITH _BaseEntity };
+}

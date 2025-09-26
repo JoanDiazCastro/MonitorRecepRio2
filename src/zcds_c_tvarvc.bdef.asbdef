@@ -1,0 +1,47 @@
+managed implementation in class ZBP_R_CLMM_TB_TVARVC unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCDS_C_TVARVC alias ZcdsCTvarvc
+persistent table ZCLMM_TB_TVARVC
+extensible
+draft table ZCLMM_TB_TVRVC_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   ID,
+   Name;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   ID,
+   Name;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLMM_TB_TVARVC corresponding extensible
+  {
+    ID = id;
+    Name = name;
+    Value = value;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_C_TVARVC'
+@MappingRole: true
+define role ZCDS_C_TVARVC {
+  grant select on ZCDS_C_TVARVC
+  where TRUE;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_C_EXCECOC'
+@MappingRole: true
+define role ZCDS_C_EXCECOC {
+  grant select on ZCDS_C_EXCECOC
+  where TRUE;
+}

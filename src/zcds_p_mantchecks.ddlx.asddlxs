@@ -1,0 +1,37 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Checks',
+        typeNamePlural: 'Check',
+        title: { type: #STANDARD, value: 'Bukrs' , label: 'Sociedad'}
+        },
+    presentationVariant: [{ sortOrder: [{ by: 'Code', direction: #ASC }] }]
+}
+
+annotate view ZCDS_P_MANTCHECKS with
+{
+  @UI.facet: [
+    {
+        label: 'Información',
+        purpose: #STANDARD,
+        id: 'GeneralInfo',
+        type: #IDENTIFICATION_REFERENCE,
+        position: 10
+     }
+   ]
+  @UI.lineItem: [{ position: 10, label: 'Sociedad'}]
+  @UI.identification: [ { position: 10, label: 'Sociedad' } ]
+  Bukrs;
+
+  @UI.lineItem: [{ position: 20, label: 'Código'}]
+  @UI.identification: [ { position: 20, label: 'Código' } ]
+  Code;
+
+  @UI.lineItem: [{ position: 30, label: 'Validación'}]
+  @UI.identification: [ { position: 30 } ]
+  Codet;
+
+  @UI.lineItem: [{ position: 40, label: 'Activo'}]
+  @UI.identification: [ { position: 40 } ]
+  Activo;
+}

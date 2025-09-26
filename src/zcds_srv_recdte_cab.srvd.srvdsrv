@@ -1,0 +1,11 @@
+@EndUserText.label: 'Definicion de servicio ZCDS_C_RECDTE_CAB'
+define service ZCDS_SRV_RECDTE_CAB {
+  expose zcds_c_recdte_cab    as MonitorDte;
+  expose ZCDS_P_RECDTE_CAB;
+  expose zcds_c_recdte_det;
+  expose zcds_c_recdte_ref;
+  expose zcds_c_checks_dte;
+  expose zcds_c_parglob_dte;
+  expose zcds_c_recdte_log;
+  expose zcds_c_recdte_ref_em;
+}

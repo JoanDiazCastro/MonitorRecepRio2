@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_C_CODIMP'
+@MappingRole: true
+define role ZCDS_C_CODIMP {
+  grant select on ZCDS_C_CODIMP
+  where TRUE;
+}

@@ -1,0 +1,44 @@
+managed implementation in class ZBP_R_CLMM_TB_CODIMPT unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCDS_C_CODIMP alias ZcdsCCodimp
+persistent table ZCLMM_TB_CODIMPT
+extensible
+draft table ZCLMM_TB_CDMPT_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   Codigo;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   Codigo;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLMM_TB_CODIMPT corresponding extensible
+  {
+    Codigo = codigo;
+    Descripcion = descripcion;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

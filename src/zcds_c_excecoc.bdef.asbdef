@@ -1,0 +1,45 @@
+managed implementation in class ZBP_R_CLMM_TB_EXCECOC unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCDS_C_EXCECOC alias ZcdsCExcecoc
+persistent table ZCLMM_TB_EXCECOC
+extensible
+draft table ZCLMM_TB_EXCCC_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   Lifnr;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   Lifnr;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLMM_TB_EXCECOC corresponding extensible
+  {
+    Lifnr = lifnr;
+    Hkont = hkont;
+    Kostl = kostl;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

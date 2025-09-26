@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_P_CODIMP'
+@MappingRole: true
+define role ZCDS_P_CODIMP {
+  grant select on ZCDS_P_CODIMP
+  where INHERITING CONDITIONS FROM ENTITY ZCDS_C_CODIMP REPLACING { ROOT WITH _BaseEntity };
+}

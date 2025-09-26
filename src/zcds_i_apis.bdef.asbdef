@@ -1,0 +1,47 @@
+managed implementation in class ZBP_R_CLMM_TB_APIS unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCDS_I_APIS alias ZcdsIApis
+persistent table ZCLMM_TB_APIS
+extensible
+draft table ZCLMM_TB_APIS_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   Idend;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   Idend;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLMM_TB_APIS corresponding extensible
+  {
+    Idend = idend;
+    Endpoint = endpoint;
+    Zzuser = zzuser;
+    Zzpassword = zzpassword;
+    Zzmethod = zzmethod;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

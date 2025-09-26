@@ -1,0 +1,83 @@
+unmanaged implementation in class zbp_cds_c_recdte_cab unique;
+strict ( 2 );
+
+define behavior for zcds_c_recdte_cab alias MonitorDte
+lock master
+authorization master ( instance )
+{
+  field ( readonly ) IdDTE;
+  create;
+  update;
+  //  delete;
+
+  // Asociaciones
+  association _Detalle { create; }
+  association _Referencias { create; }
+  association _Log { create; }
+
+  action procesarMultiple parameter zcds_ab_contab_masiva { default function GetDefaultsForMasiva; }
+  action ( features : instance ) pdf;
+  action ( features : instance ) contabilizar;
+  action ( features : instance ) rechazar;
+  action ( features : instance ) contabilizar_oc parameter ZCDS_AB_CON_SINOC { default function GetDefaultsForReferencia; }
+  action ( features : instance ) contabilizar_fb60 parameter ZCDS_AB_CONTAB_FB60 { default function GetDefaultsForItems; }
+
+  // Side effects
+  side effects
+  {
+    action procesarMultiple affects
+        $self;
+
+    action pdf affects
+        field urlpdf;
+
+    action contabilizar affects
+        field NroDocContable,
+        field AnioDocCont,
+        field NroDocMaterial,
+        entity _Log;
+
+    action contabilizar_oc affects
+        $self;
+
+    action contabilizar_fb60 affects
+        field NroDocContable,
+        field AnioDocCont,
+        field NroDocMaterial,
+        entity _Log;
+  }
+}
+
+define behavior for zcds_c_recdte_det alias MonitorDteDetails
+lock dependent by _Header
+authorization dependent by _Header
+{
+  field ( readonly ) IdDTE, NroLinea;
+  create;
+  update;
+  association _Header;
+  action updateCta parameter zcds_ab_contab_fb60;
+
+  side effects
+  {
+    action updateCta affects
+        $self;
+  }
+}
+
+
+define behavior for zcds_c_recdte_ref alias MonitorDteReferencias
+lock dependent by _Header
+authorization dependent by _Header
+{
+  field ( readonly ) IdDTE, NroLinea;
+  association _Header;
+}
+
+define behavior for zcds_c_recdte_log alias MonitorDteLog
+lock dependent by _Header
+authorization dependent by _Header
+{
+  field ( readonly ) IdDTE, Correlativo;
+  association _Header;
+}

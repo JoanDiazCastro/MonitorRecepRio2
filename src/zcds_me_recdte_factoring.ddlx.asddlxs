@@ -1,0 +1,38 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Factoring',
+        typeNamePlural: 'Factoring'
+    }
+}
+annotate view zcds_c_recdte_factoring with
+{
+
+  @UI.lineItem: [{ position: 10, label: 'Fecha Evento'  }]
+  FechaEvento;
+
+  @UI.lineItem: [{ position: 20, label: 'Rut Cesionario'  }]
+  RutCesionario;
+
+  @UI.lineItem: [{ position: 30, label: 'Fecha Cesión'  }]
+  FechaCesion;
+
+  @UI.lineItem: [{ position: 40, label: 'Estado'  }]
+  EstadoCesion;
+
+  @UI.lineItem: [{ position: 50, label: 'Razón Social Cesarionario'  }]
+  RazonsocialCesionario;
+
+  @UI.lineItem: [{ position: 60, label: 'Rut Cedente'  }]
+  RutCedente;
+
+  @UI.lineItem: [{ position: 70, label: 'URL Cesión'  }]
+  UrlCesion;
+
+  @UI.lineItem: [{ position: 80, label: 'Monto Cedido'  }]
+  MontoCedido;
+
+  @UI.lineItem: [{ position: 90, label: 'Moneda'  }]
+  Moneda;
+
+}

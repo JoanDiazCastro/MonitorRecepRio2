@@ -1,0 +1,51 @@
+managed implementation in class ZBP_R_CLMM_TB_CHECKS unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCDS_C_MANTCHECKS alias ZcdsCMantchecks
+persistent table ZCLMM_TB_CHECKS
+extensible
+draft table ZCLMM_TB_CHCKS_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   Bukrs,
+   Code;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   Bukrs,
+   Code;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLMM_TB_CHECKS corresponding extensible
+  {
+    Bukrs = bukrs;
+    Code = code;
+    Codet = codet;
+    Activo = activo;
+    Rechau = rechau;
+    Motmail = motmail;
+    Motrech = motrech;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Definición de servicio para ZCDS_P_TIPODTE'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZCDS_P_TIPODTE'
+  }
+}
+define service ZCDS_SRV_TIPODTE provider contracts odata_v4_ui {
+  expose ZCDS_P_TIPODTE;
+}

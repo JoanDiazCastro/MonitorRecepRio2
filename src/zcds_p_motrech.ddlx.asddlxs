@@ -1,0 +1,94 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'Codigo'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'Codigo'
+annotate view ZCDS_P_MOTRECH with
+{
+  @UI.facet: [ {
+    label: 'Información general', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @UI.identification: [ {
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  Codigo;
+  
+  @UI.identification: [ {
+    position: 20 
+  } ]
+  @UI.lineItem: [ {
+    position: 20 
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  Descripcion;
+  
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  @UI.lineItem: [ {
+    position: 30 
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  Createdby;
+  
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40 
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  Changedby;
+  
+  @UI.identification: [ {
+    position: 50 
+  } ]
+  @UI.lineItem: [ {
+    position: 50 
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  Lastmod;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  Lastmodloc;
+  
+  @EndUserText.label: '_BaseEntity'
+  @UI.identification: [ {
+    position: 70 , 
+    label: '_BaseEntity'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+    label: '_BaseEntity'
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  _BaseEntity;
+}

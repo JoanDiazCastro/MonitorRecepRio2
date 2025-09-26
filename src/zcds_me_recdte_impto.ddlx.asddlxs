@@ -1,0 +1,28 @@
+@Metadata.layer: #CORE
+
+@UI: {
+    headerInfo: {
+        typeName: 'Impuestos',
+        typeNamePlural: 'Impuestos'
+    }
+}
+
+annotate view zcds_c_recdte_impto with
+
+{
+  @UI.lineItem: [{ position: 10 }]
+  NroLinea;
+
+  @UI.lineItem: [{ position: 20 }]
+  CodImpuesto;
+
+  @UI.lineItem: [{ position: 30 }]
+  DescImpuesto;
+
+  @UI.lineItem: [{ position: 40 }]
+  MontoImpuest;
+
+  @UI.lineItem: [{ position: 50 }]
+  TasaImpuesto;
+
+}

@@ -1,0 +1,38 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Tipo DTE',
+        typeNamePlural: 'Tipos DTE'
+        },
+    presentationVariant: [{ sortOrder: [{ by: 'DteType', direction: #DESC }]
+     }]
+}
+
+annotate entity ZCDS_P_TIPODTE with
+{
+  @UI.facet: [
+    {
+        label: 'Información',
+        purpose: #STANDARD,
+        id: 'GeneralInfo',
+        type: #IDENTIFICATION_REFERENCE,
+        position: 10
+     }
+   ]
+
+  @UI:{
+    lineItem: [{ position: 10, label: 'Idioma', importance: #HIGH, type: #STANDARD }],
+    identification: [{ position: 10 }]
+  }
+  Language;
+  @UI:  {
+  lineItem: [{ position: 20, label: 'Tipo DTE', importance: #HIGH, type: #STANDARD }],
+  identification: [{ position: 20, label: 'Tipo DTE' }]
+  }
+  DteType;
+  @UI:  {
+  lineItem: [{ position: 30, label: 'Descripción DTE', importance: #HIGH, type: #STANDARD }],
+  identification: [{ position: 30, label: 'Descripción DTE' }]
+  }
+  DteDesc;
+}

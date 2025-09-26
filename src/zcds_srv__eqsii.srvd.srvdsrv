@@ -1,0 +1,12 @@
+@EndUserText: {
+  label: 'Definición de servicio ZCDS_P__EQSII'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZCDS_P__EQSII'
+  }
+}
+define service ZCDS_SRV__EQSII
+  provider contracts odata_v4_ui {
+  expose ZCDS_P__EQSII;
+}

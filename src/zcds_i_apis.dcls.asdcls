@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_I_APIS'
+@MappingRole: true
+define role ZCDS_I_APIS {
+  grant select on ZCDS_I_APIS
+  where TRUE;
+}

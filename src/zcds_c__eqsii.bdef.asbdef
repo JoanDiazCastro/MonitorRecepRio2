@@ -1,0 +1,45 @@
+managed implementation in class ZBP_R_CLMM_TB_EQSII unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCDS_C__EQSII alias ZcdsC_eqsii
+persistent table ZCLMM_TB_EQSII
+extensible
+draft table ZCLMM_TB_EQSII_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   Blart;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   Blart;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLMM_TB_EQSII corresponding extensible
+  {
+    Blart = blart;
+    Indimp = indimp;
+    Docsii = docsii;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

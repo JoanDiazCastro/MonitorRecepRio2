@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_CLMM_TB_MAILREC'
+@MappingRole: true
+define role ZC_CLMM_TB_MAILREC {
+  grant select on ZC_CLMM_TB_MAILREC
+  where INHERITING CONDITIONS FROM ENTITY ZR_CLMM_TB_MAILREC REPLACING { ROOT WITH _BaseEntity };
+}

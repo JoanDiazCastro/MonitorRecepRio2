@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Definición de servicio para ZCDS_P_MANTCHECKS'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZCDS_P_MANTCHECKS'
+  }
+}
+define service ZCDS_SRV_MANTCHECKS provider contracts odata_v4_ui {
+  expose ZCDS_P_MANTCHECKS;
+}

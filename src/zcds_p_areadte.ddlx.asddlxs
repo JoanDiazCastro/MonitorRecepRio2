@@ -1,0 +1,30 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Area DTE',
+        typeNamePlural: 'Area DTE',
+        title: { type: #STANDARD, value: 'Codarea' , label: 'Código Área'}
+        },
+    presentationVariant: [{ sortOrder: [{ by: 'Codarea', direction: #ASC }] }]
+} 
+
+annotate view ZCDS_P_AREADTE with
+{
+  @UI.facet: [
+    {
+        label: 'Información',
+        purpose: #STANDARD,
+        id: 'GeneralInfo',
+        type: #IDENTIFICATION_REFERENCE,
+        position: 10
+     }
+   ]
+
+  @UI.lineItem: [{ position: 10, label: 'Código Área'}]
+  @UI.identification: [ { position: 10 } ]
+  Codarea;
+
+  @UI.lineItem: [{ position: 20, label: 'Descripción'}]
+  @UI.identification: [ { position: 20 } ]
+  Descarea;
+}

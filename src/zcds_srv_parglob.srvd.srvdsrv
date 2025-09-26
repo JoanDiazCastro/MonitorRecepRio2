@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Definición de servicio para ZCDS_P_PARGLOB'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZCDS_P_PARGLOB'
+  }
+}
+define service ZCDS_SRV_PARGLOB provider contracts odata_v4_ui {
+  expose ZCDS_P_PARGLOB;
+}

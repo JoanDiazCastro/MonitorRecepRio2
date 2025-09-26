@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_C_MOTRECH'
+@MappingRole: true
+define role ZCDS_C_MOTRECH {
+  grant select on ZCDS_C_MOTRECH
+  where TRUE;
+}

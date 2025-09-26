@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_P_PARGLOB'
+@MappingRole: true
+define role ZCDS_P_PARGLOB {
+  grant select on ZCDS_P_PARGLOB
+  where INHERITING CONDITIONS FROM ENTITY ZCDS_C_PARGLOB REPLACING { ROOT WITH _BaseEntity };
+}

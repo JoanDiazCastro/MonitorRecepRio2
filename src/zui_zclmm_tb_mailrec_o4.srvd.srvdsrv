@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Definición de servicio para ZC_CLMM_TB_MAILREC'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_CLMM_TB_MAILREC'
+  }
+}
+define service ZUI_ZCLMM_TB_MAILREC_O4 provider contracts odata_v4_ui {
+  expose ZC_CLMM_TB_MAILREC;
+}

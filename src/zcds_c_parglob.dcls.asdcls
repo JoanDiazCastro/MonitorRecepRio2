@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_C_PARGLOB'
+@MappingRole: true
+define role ZCDS_C_PARGLOB {
+  grant select on ZCDS_C_PARGLOB
+  where TRUE;
+}

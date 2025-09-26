@@ -1,0 +1,280 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Documento Recepción - SEIDOR',
+        typeNamePlural: 'Documentos Recepción - SEIDOR',
+        title: {
+            type: #STANDARD, value: 'FolioDes'
+        }
+//        description: {
+//            value: 'TipoDteDesc'
+//        }
+    },
+
+    presentationVariant: [{
+        sortOrder: [{
+            by: 'FechaEmision',
+            direction: #DESC
+        }],
+        visualizations: [{
+            type: #AS_LINEITEM
+        }]
+    }]
+}
+annotate view zcds_c_recdte_cab
+
+with
+
+{
+  // Cabecera
+  @UI.facet: [
+    {
+      purpose: #HEADER,
+      position: 10,
+      type: #DATAPOINT_REFERENCE,
+      targetQualifier: 'reglasOkDP'
+   },
+
+  {
+      purpose: #HEADER,
+      position: 20,
+      type: #DATAPOINT_REFERENCE,
+      targetQualifier: 'FechaEmisionDP'
+
+   },
+
+    {
+      purpose: #HEADER,
+      position: 30,
+      type: #DATAPOINT_REFERENCE,
+      targetQualifier: 'CodProveedorDP'
+
+   },
+       {
+      purpose: #HEADER,
+      position: 40,
+      type: #DATAPOINT_REFERENCE,
+      targetQualifier: 'MontoNetoDP'
+
+   },
+       {
+      purpose: #HEADER,
+      position: 50,
+      type: #DATAPOINT_REFERENCE,
+      targetQualifier: 'MontoIvaDP'
+
+   },
+       {
+      purpose: #HEADER,
+      position: 60,
+      type: #DATAPOINT_REFERENCE,
+      targetQualifier: 'MontoExentoDP'
+
+   },
+       {
+      purpose: #HEADER,
+      position: 70,
+      type: #DATAPOINT_REFERENCE,
+      targetQualifier: 'MontoTotalDP'
+
+   },
+
+  //   {
+  //      purpose: #HEADER,
+  //      position: 80,
+  //      type: #DATAPOINT_REFERENCE,
+  //      targetQualifier: 'RecepMultipleDP'
+  //
+  //   },
+
+   //elementos de TAB
+   {
+    label: 'General Information',
+    id: 'GeneralInfo',
+    type: #COLLECTION,
+    position: 10
+
+   },
+
+   {
+    label : 'General',
+    purpose: #STANDARD,
+    position: 10,
+    type: #IDENTIFICATION_REFERENCE,
+    parentId: 'GeneralInfo'
+   },
+
+   //Otra seccion de Detalle
+   {
+       id: 'Detalle',
+       label : 'Detalle',
+       purpose: #STANDARD,
+       type: #LINEITEM_REFERENCE,
+       position: 20,
+       targetElement: '_Detalle'
+   },
+
+    //Otra seccion de Referencia
+   {
+       id: 'Referencia',
+       label : 'Referencias',
+       purpose: #STANDARD,
+       type: #LINEITEM_REFERENCE,
+       position: 30,
+       targetElement: '_Referencias'
+   },
+
+       //Otra seccion de Referencia
+
+  //   {
+  //       id: 'EntradaMercancia',
+  //       label : 'Entrada de Mercancía',
+  //       purpose: #STANDARD,
+  //       type: #LINEITEM_REFERENCE,
+  //       position: 40,
+  //       targetElement: '_EntradaMercancia'
+  //   },
+
+
+
+       //Otra seccion de Impuestos
+
+  //   {
+  //       id: 'Impuestos',
+  //       label : 'Impuestos',
+  //       purpose: #STANDARD,
+  //       type: #LINEITEM_REFERENCE,
+  //       position: 50,
+  //       targetElement: '_Impuestos'
+  //
+  //   },
+
+       //Otra seccion de Log
+
+   {
+       id: 'Log',
+       label : 'Log',
+       purpose: #STANDARD,
+       type: #LINEITEM_REFERENCE,
+       position: 60,
+       targetElement: '_Log'
+
+   }
+
+  //Otra seccion de Log
+  //   {
+  //       id: 'Factoring',
+  //       label : 'Factoring',
+  //       purpose: #STANDARD,
+  //       type: #LINEITEM_REFERENCE,
+  //       position: 70,
+  //       targetElement: '_Factoring'
+  //
+  //   }
+   ]
+
+  @UI: {
+    lineItem: [
+      { position: 10, importance: #HIGH, label: 'Tipo DTE', cssDefault.width: '100%' },
+      { type: #FOR_ACTION, dataAction: 'procesarMultiple', label: 'Contabilización multiple' }
+    ],
+
+    identification: [
+      { position: 10 },
+      { type: #FOR_ACTION, dataAction: 'contabilizar',      label: 'Contabilizar OC' },
+      { type: #FOR_ACTION, dataAction: 'contabilizar_oc',   label: 'Editar referencia' },
+      { type: #FOR_ACTION, dataAction: 'contabilizar_fb60', label: 'Contabilizar FB60' }]
+  //      { type: #FOR_ACTION, dataAction: 'pdf',               label: 'Obtener PDF'} ]
+  //      { type: #FOR_ACTION, dataAction: 'rechazar',          label: 'Rechazar' } ]
+  }
+  TipoDte;
+
+  @UI.lineItem: [{ label: 'Habilitado Contabilización', position: 20, criticality: 'reglasOkStatus' }] //indica la posicion // criticality asigna colo
+  @UI.textArrangement: #TEXT_ONLY  //muestra solo el texto y no el caracter KEY del elemento
+  @UI.dataPoint: { qualifier: 'reglasOkDP', title: 'Hab. Contab.', criticality: 'reglasOkStatus'}
+  reglasOk;
+
+  @UI.lineItem: [{ position: 30 }]
+  @UI.selectionField: [{ position: 40 }]
+  StatusContab;
+
+  @UI.dataPoint: { qualifier: 'FolioDP', title: 'Folio'}
+  @UI.lineItem: [{ position: 40 }]
+  Folio;
+
+  @UI.lineItem: [{ position: 50 }]
+  @UI.dataPoint: { qualifier: 'FechaEmisionDP', title: 'Fecha Emisión'}
+  FechaEmision;
+
+  @UI.lineItem: [{ position: 60 }]
+  @UI.selectionField: [{ position: 20 }]
+  RutEmisor;
+
+  @UI.lineItem: [{ position: 70 }]
+  @UI.dataPoint: { qualifier: 'MontoTotalDP', title: 'Total'}
+  MontoTotal;
+
+  @UI.selectionField: [{ position: 30 }]
+  Sociedad;
+
+  @UI.lineItem: [{ position: 80 }]
+  @UI.selectionField: [{ position: 50 }]
+  FechaRecepcion;
+
+  @UI.lineItem: [{ position: 90 }]
+  RazonSocial;
+
+  @UI.dataPoint: { qualifier: 'CodProveedorDP', title: 'Cod. Proveedor'}
+  CodProveedor;
+
+  @UI.dataPoint: { qualifier: 'MontoNetoDP', title: 'Neto'}
+  MontoNeto;
+
+  @UI.dataPoint: { qualifier: 'MontoIvaDP', title: 'IVA'}
+  MontoIva;
+
+  @UI.dataPoint: { qualifier: 'MontoExentoDP', title: 'Exento'}
+  MontoExento;
+
+  //  @UI.identification: [{ position: 30, label: 'Año Docto. Contable' }]
+  @UI.lineItem: [{ position: 100 }]
+  AnioDocCont;
+
+  @UI.identification: [{ position: 20, label: 'N° Docto. Contable' }]
+  @UI.lineItem: [{ label: 'N° Docto. Contable', position: 100 }] //indica la posicion // criticality asigna colo
+  NroDocContable;
+
+  @UI.identification: [{ position: 40, label: 'N° Factura SAP' }]
+  @UI.lineItem: [{ label: 'N° Factura SAP', position: 110 }] //indica la posicion // criticality asigna colo
+  NroDocMaterial;
+
+  @UI.lineItem: [{ label: 'Primera regla sin cumplir', position: 120 }] //indica la posicion // criticality asigna colo
+  PrimerNoCumple;
+
+  @UI.lineItem: [{ label: 'Días Vcto. Rechazo', position: 130, criticality: 'diasVctoRechazoStatus', criticalityRepresentation: #WITHOUT_ICON }] //indica la posicion // criticality asigna colo
+  diasVctoRechazo;
+
+  @UI.lineItem: [{ label: 'Estado SII', position: 140 }]
+  @UI.selectionField: [{ position: 60 }]
+  Evento;
+
+  @UI.lineItem: [{ label: 'Motivo Rechazo', position: 150 }]
+  @UI.selectionField: [{ position: 70 }]
+  MotRechazoCod;
+
+  @UI.lineItem: [{ label: 'Referencia OC', position: 160 }]
+  RefOC;
+
+  //  @UI.dataPoint: { qualifier: 'RecepMultipleDP', title: 'Recepción Múltiple'}
+  //  @UI.lineItem: [{ label: 'Recepción Múltiple', position: 170 }]
+  //  @UI.selectionField: [{ position: 80 }]
+  //  recepmultiple;
+
+  //  @UI.selectionField: [{ position: 90 }]
+  //  StatusFactoring;
+
+  @UI.lineItem: [{ position: 100,       type: #WITH_URL, url: 'urlPDF', label: 'Url PDF' }]
+  //  @UI.identification: [{ position: 100, type: #WITH_URL, url: 'urlPDF', label: 'Url PDF' }]
+  urlPDF;
+
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_P_TIPODTE'
+@MappingRole: true
+define role ZCDS_P_TIPODTE {
+  grant select on ZCDS_P_TIPODTE
+  where INHERITING CONDITIONS FROM ENTITY ZCDS_C_TIPODTE REPLACING { ROOT WITH _BaseEntity };
+}

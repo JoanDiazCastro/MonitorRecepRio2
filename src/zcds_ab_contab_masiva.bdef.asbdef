@@ -1,0 +1,6 @@
+abstract;
+
+define behavior for zcds_ab_contab_masiva
+{
+  field ( mandatory ) fchcontab;
+}

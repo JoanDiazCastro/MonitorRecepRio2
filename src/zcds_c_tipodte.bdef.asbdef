@@ -1,0 +1,47 @@
+managed implementation in class ZBP_R_CLFEL_TB_TPDTE unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCDS_C_TIPODTE alias ZcdsCTipodte
+persistent table ZCLFEL_TB_TPDTE
+extensible
+draft table ZCLFL_TB_TPDTE_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   Language,
+   DteType;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   Language,
+   DteType;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLFEL_TB_TPDTE corresponding extensible
+  {
+    Language = language;
+    DteType = dte_type;
+    DteDesc = dte_desc;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

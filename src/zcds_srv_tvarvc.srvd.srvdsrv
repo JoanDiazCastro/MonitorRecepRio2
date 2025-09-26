@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Definición de servicio para ZCDS_P_TVARVC'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZCDS_P_TVARVC'
+  }
+}
+define service ZCDS_SRV_TVARVC provider contracts odata_v4_ui {
+  expose ZCDS_P_TVARVC;
+}

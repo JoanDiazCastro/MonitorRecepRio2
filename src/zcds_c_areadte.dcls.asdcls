@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCDS_C_AREADTE'
+@MappingRole: true
+define role ZCDS_C_AREADTE {
+  grant select on ZCDS_C_AREADTE
+  where TRUE;
+}

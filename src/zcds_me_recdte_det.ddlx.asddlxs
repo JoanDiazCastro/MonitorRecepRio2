@@ -1,0 +1,49 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Detalle',
+        typeNamePlural: 'Detalles'
+    } ,
+    presentationVariant: [{
+        visualizations: [{
+            type: #AS_LINEITEM
+        }]
+    }]
+}
+
+annotate view zcds_c_recdte_det with
+{
+  @UI.lineItem: [{ position: 10, importance: #HIGH, cssDefault.width: '3rem' }]
+//                 { type: #FOR_ACTION, dataAction: 'updateCta', label: 'Actualizar pos' }]
+  NroLinea;
+
+  @UI.lineItem: [{ position: 20, importance: #MEDIUM , cssDefault.width: '15rem' }]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'Detalles' }]
+  @UI.identification: [{ position: 20 }]
+  NombreItem;
+
+  @UI.lineItem: [{ position: 30, importance: #MEDIUM, cssDefault.width: '5rem', label: 'Cantidad'}]
+  Cantidad;
+
+  @UI.lineItem: [{ position: 40, cssDefault.width: '8rem' }]
+  Precio;
+
+  @UI.lineItem: [{ position: 50, cssDefault.width: '8rem' }]
+  MontoItem;
+
+  @UI.lineItem: [{ position: 60 }]
+  CodigoMaterial;
+
+  @UI.lineItem: [{ position: 70 }]
+  DescMaterial;
+
+  @UI.lineItem: [{ position: 80 }]
+  UnidadMedida;
+
+//  @UI.lineItem: [{ position: 90 }]
+//  CentroCosto;
+//
+//  @UI.lineItem: [{ position: 100 }]
+//  CuentaMayor;
+
+}

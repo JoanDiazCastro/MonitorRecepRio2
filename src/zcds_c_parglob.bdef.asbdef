@@ -1,0 +1,48 @@
+managed implementation in class ZBP_R_CLMM_TB_PARGLOB unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCDS_C_PARGLOB alias ZcdsCParglob
+persistent table ZCLMM_TB_PARGLOB
+extensible
+draft table ZCLMM_TB_PRGLB_D
+etag master Lastmodloc
+lock master total etag Lastmodloc
+authorization master( global )
+{
+  field ( mandatory : create )
+   Bukrs,
+   Parametro;
+
+  field ( readonly )
+   Lastmod,
+   Lastmodloc;
+
+  field ( readonly : update )
+   Bukrs,
+   Parametro;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCLMM_TB_PARGLOB corresponding extensible
+  {
+    Bukrs = bukrs;
+    Parametro = parametro;
+    PorcTol = porc_tol;
+    Activo = activo;
+    Createdby = createdby;
+    Changedby = changedby;
+    Lastmod = lastmod;
+    Lastmodloc = lastmodloc;
+  }
+
+}

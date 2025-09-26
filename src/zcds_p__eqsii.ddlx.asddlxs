@@ -1,0 +1,36 @@
+@Metadata.layer: #CORE
+@UI: {
+    headerInfo: {
+        typeName: 'Equivalencia SII',
+        typeNamePlural: 'Equivalencia SII',
+        title: { type: #STANDARD, value: 'Docsii' , label: 'Equivalencia SII'}
+        },
+    presentationVariant: [{ sortOrder: [{ by: 'Blart', direction: #ASC }] }]
+}
+
+annotate view ZCDS_P__EQSII
+    with  
+{
+  @UI.facet: [
+    {
+        label: 'Información',
+        purpose: #STANDARD,
+        id: 'GeneralInfo',
+        type: #IDENTIFICATION_REFERENCE,
+        position: 10
+     }
+   ]
+   
+    @UI.lineItem: [{ position: 10, label: 'Clase de documento'}]
+    @UI.identification: [ { position: 10 } ]
+    Blart;
+    
+    @UI.lineItem: [{ position: 20, label: 'Ind. Impuesto'}]
+    @UI.identification: [ { position: 20 } ]
+    Indimp;
+    
+    @UI.lineItem: [{ position: 30, label: 'Tipo DTE'}]
+    @UI.identification: [ { position: 30 } ]
+    Docsii;
+
+}
